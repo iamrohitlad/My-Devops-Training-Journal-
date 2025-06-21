@@ -1,0 +1,28 @@
+KEY CONCEPTS IN DEVOPS : 
+1. Continuous Integration (CI)
+Definition: Continuous Integration (CI) is the practice of integrating code into a shared repository frequently. Each code integration triggers an automated build and test sequence, ensuring the new code doesn’t break existing functionality.
+Example: A team uses GitLab CI/CD for Continuous Integration. Each time a developer pushes code to the repository, the CI system automatically compiles the code, runs unit tests, and alerts the developer of any issues before the code merges with the main branch. This process ensures that code is always in a deployable state.
+
+2. Continuous Delivery (CD)
+Definition: Continuous Delivery automates the release process, ensuring that code is always in a state where it can be deployed to production. This means that every code change that passes all stages of the CI pipeline is ready for deployment.
+Example: A company uses AWS CodePipeline to automate deployment after successful integration. Once the code passes all tests, CodePipeline automatically pushes the code to a staging environment for final checks. With one click, the code can then be promoted to production, reducing manual deployment steps.
+
+3. Continuous Deployment
+Definition: Continuous Deployment goes one step further than Continuous Delivery by automatically deploying code to production as soon as it passes all required tests. This approach reduces human intervention and allows for more frequent updates.
+Example: Facebook uses continuous deployment to push updates to its application frequently. When developers commit changes, they are tested and then deployed directly to production, allowing Facebook to release small, incremental changes regularly and maintain rapid feature delivery.
+
+4. Infrastructure as Code (IaC)
+Definition: IaC is the practice of managing and provisioning computing infrastructure through machine-readable code rather than through physical hardware configuration or interactive configuration tools.
+Example: A team uses Terraform to define and provision cloud infrastructure on AWS. The infrastructure configurations, including servers, databases, and networks, are stored in version-controlled Terraform files, allowing them to recreate the entire environment from scratch in a new region if needed.
+
+5. Configuration Management
+Definition: Configuration management is the practice of handling changes systematically so that a system maintains integrity over time. It includes configuring servers, software, and environments in a consistent and repeatable manner.
+Example: Using Ansible, a team manages configurations for a fleet of servers. With Ansible playbooks, they can apply the same configurations across multiple servers, ensuring consistency and making it easy to roll back changes if needed.
+
+6. Monitoring and Logging
+Definition: Monitoring and logging provide visibility into application and infrastructure performance, enabling teams to detect issues early, troubleshoot faster, and gain insights into user behavior and system health.
+Example: Netflix uses tools like Prometheus for monitoring and ELK (Elasticsearch, Logstash, Kibana) for logging. These tools help track application performance, allowing Netflix engineers to proactively identify bottlenecks and reduce downtime, especially during peak times.
+
+7. Collaboration and Communication
+Definition: Collaboration and communication are vital in DevOps, breaking down silos between development and operations teams. DevOps encourages transparency, shared responsibilities, and alignment on goals.
+Example: A team at Spotify uses Slack and shared dashboards in Grafana to keep everyone informed about deployment status, incidents, and key metrics. These tools foster open communication and allow everyone to contribute to issue resolution and process improvement.

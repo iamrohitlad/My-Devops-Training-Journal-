@@ -125,6 +125,43 @@ Description: In the recreate strategy, the existing version of the application i
 Best for: Small applications or non-critical applications where brief downtime is acceptable.
 Example: A small e-commerce website can use the recreate strategy during low-traffic hours to deploy a new version. Since the downtime is short and scheduled, it minimizes disruption to users.
 
+2. Rolling Deployment
+Description: In a rolling deployment, instances of the old version are gradually replaced with instances of the new version. This strategy provides zero downtime and a continuous, seamless deployment experience.
+How it Works:
+A few instances of the old version are terminated and replaced with instances of the new version.
+This process continues until all instances are running the new version.
+Best for: Applications requiring zero downtime, such as web applications with multiple instances.
+Example: An API-based application with several instances can be deployed with a rolling update. Kubernetes and other orchestration tools often provide rolling deployment as a standard strategy, ensuring no downtime while gradually replacing instances.
 
+3. Blue-Green Deployment
+Description: Blue-Green Deployment involves two identical environments: one running the old version (Blue) and another with the new version (Green). Traffic is initially directed to the Blue environment. Once the Green environment is ready and tested, traffic is switched from Blue to Green.
+Benefits:
+Zero downtime: Users don’t experience downtime because the switch between Blue and Green is instantaneous.•
+Easy rollback: If issues are detected, it’s easy to revert traffic back to the Blue environment.
+Best for: Applications with stringent uptime requirements, large applications, or complex systems where rollback simplicity is important.
+Example: An online banking application could use a blue-green strategy to release updates. During deployment, users access the Blue environment. Once the Green environment is tested and verified, traffic is switched to it. If any issues arise, the bank can easily switch traffic back to the Blue environment.
 
+4. Canary Deployment
+Description: In a canary deployment, a small subset of users is initially routed to the new version, while the rest continue to use the old version. If the new version performs well without issues, traffic is gradually increased until all users are using the new version.
+Benefits:
+Low-risk testing: Allows teams to test the new version on a small scale.
+Gradual rollout: Issues can be identified and fixed with minimal impact on users.
+Best for: High-traffic applications, where a gradual rollout is essential to catch issues early.
+Example: A social media platform may use a canary deployment to introduce a new feature to 5% of its users. If the feature works as expected, the rollout can gradually increase to 25%, 50%, and eventually 100% of users. This ensures a smooth and risk-mitigated release process
+
+5. A/B Testing
+Description: In A/B testing, two versions of the application are deployed simultaneously, but with different features or configurations. Traffic is divided between the two versions, and metrics are gathered to assess which version performs better.
+Benefits:
+Data-driven decisions: Allows teams to gather real-world data on feature performance
+User feedback: Direct feedback from users can influence which version to keep
+Best for: Applications with a strong focus on user experience, where testing different UI/UX elements or features can drive improvements.
+Example: An e-commerce website might use A/B testing to compare two versions of its checkout process. Version A has a single-page checkout, while Version B has a multi-step checkout. Metrics like conversion rates are gathered, and the more successful version is kept in production.
+
+6. Shadow Deployment
+Description: In a shadow deployment, the new version runs alongside the old version, but only receives a copy of the live traffic without affecting end users. This allows the team to monitor how the new version handles the production load without impacting real users.
+Benefits:
+Testing at scale: Allows for performance and functionality testing with live traffic data.
+No risk to users: Since users interact only with the old version, any issues with the new version won’t impact them.
+Best for: Applications where it's crucial to test performance under real traffic conditions, such as high-stakes financial or healthcare applications.
+Example: A stock trading platform could use shadow deployment to test a new algorithm. The new algorithm receives live traffic data but doesn’t interact with users directly. This allows the platform to assess its performance and accuracy under real conditions without risking user trust.
 

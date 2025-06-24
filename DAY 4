@@ -123,3 +123,26 @@ High
 Risk-free backend validation
 
 DEVOPS ENVIROMENTS : 
+A DevOps environment is a dedicated setup of infrastructure, software, and configuration that supports specific phases of the software delivery lifecycle — from development and testing to production deployment.
+Each environment is isolated but replicates production in different degrees, allowing the team to build, test, and deploy confidently.
+Why Multiple Environments?
+Using multiple environments allows:
+Safe development without affecting live users
+Thorough testing in near-production conditions
+Controlled and phased rollout of features
+Easier debugging and rollback
+Enforcement of quality gates (like in CI/CD)
+
+2. Local Development & Feature Branching
+The developer pulls the latest code and creates a feature branch using Git. This ensures isolated development without affecting the main codebase.
+Example: git checkout -b feature/login-api
+Tools:
+VS Code, IntelliJ IDEA – Code editors
+Docker Compose / Minikube – Run the full app stack locally
+Postman – API testing
+Prettier/ESLint – Code formatting
+During development:
+Business logic is implemented.
+Environment variables are defined.
+Unit tests are written.
+.env or config.yml is prepared.

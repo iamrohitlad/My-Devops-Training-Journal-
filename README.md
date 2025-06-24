@@ -1,5 +1,5 @@
 # My-Devops-Training-Journal-
-his repository chronicles my journey into the world of DevOps, combining daily notes, hands-on experiments, and project learnings across CI/CD, automation, cloud services, and containerization. It includes: - Lab exercises and mini-projects using Jenkins, Docker, and Kubernetes.
+This repository chronicles my journey into the world of DevOps, combining daily notes, hands-on experiments, and project learnings across CI/CD, automation, cloud services, and containerization. It includes: - Lab exercises and mini-projects using Jenkins, Docker, and Kubernetes.
 DAY 1 
 What is Devops ?
 Devops is a collabrative approach to software development that emphasizes communication , collabration , integration and co-operation between the software developers and IT operation professionals . The goal of devops is to streamline the development , deployment and operations of software automating processes ,improving team collabration , and fostering culture of continous improvement or development .

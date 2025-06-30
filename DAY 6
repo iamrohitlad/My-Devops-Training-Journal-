@@ -15,6 +15,7 @@ o Add validation
 o Connect to DB 
 o Write unit tests 
 • A developer is assigned the task and begins coding. 
+
 2. Local Development & Feature Branching 
 The developer pulls the latest code and creates a feature branch using Git. This ensures isolated 
 development without affecting the main codebase. 
@@ -30,12 +31,14 @@ During development:
 • Environment variables are defined. 
 • Unit tests are written. 
 • .env or config.yml is prepared. 
+
 3. Git Push & Pull Request Lifecycle 
 After completing development, the code is pushed to the remote repository and a Pull Request (PR) 
 is raised from the feature branch to dev. 
 Example: 
 git push origin feature/login-api 
 A webhook is triggered to Jenkins when the PR is raised, which kicks off the automated CI pipeline. 
+
 4. Jenkins CI Pipeline Triggered 
 The Jenkins master receives the webhook and triggers the pipeline defined in the Jenkinsfile. Jenkins 
 checks out the code, sets up the environment, and runs all configured stages. 
@@ -52,4 +55,52 @@ stage('Docker Build & Push') { ... }
 stage('Deploy to Dev') { ... } 
 } 
 } 
+
 5. Pre-Build Phase
+This phase validates the code structure and checks for early errors. 
+Tasks: 
+• Code formatting checks (Prettier, Black) 
+• Linting (ESLint, Checkstyle) 
+• Secrets scanning (Gitleaks) 
+• Dependency resolution (npm install, mvn clean install) 
+Example: 
+If Gitleaks detects a hardcoded secret (like an AWS access key), it halts the pipeline before any 
+further action, preventing exposure.
+
+6. Build Phase 
+The code is compiled and packaged. 
+Tool: Maven 
+• Clean build: mvn clean install 
+• Creates .jar or .war file in /target 
+Jenkins Output: 
+[INFO] BUILD SUCCESS 
+[INFO] Final artifact: target/myapp-1.0.0-SNAPSHOT.jar 
+
+7. Test Phase 
+All unit tests are executed and test reports are generated. 
+Tools: 
+• JUnit, TestNG – Unit test framework 
+• Jacoco – Code coverage 
+• Jenkins JUnit plugin – Displays results in dashboard 
+Example Output: 
+Total Tests: 45 | Passed: 43 | Failed: 2 | Coverage: 88% 
+If test coverage falls below 80%, Jenkins can be configured to fail the pipeline. 
+
+8. Code Quality Analysis (SonarQube) 
+Static analysis is conducted using SonarQube. Jenkins integrates with a running SonarQube server to 
+analyze the code. 
+Metrics: 
+Bugs 
+Code Smells 
+Vulnerabilities 
+Duplications 
+Maintainability Index 
+Quality Gate: 
+• Fails build if: 
+o Coverage < 80% 
+o Any new critical issue 
+o High technical debt 
+Jenkins Console: 
+SonarQube Quality Gate: FAILED 
+Reason: 3 Critical Bugs, 2 Vulnerabilities 
+

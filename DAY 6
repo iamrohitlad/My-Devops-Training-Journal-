@@ -1,0 +1,55 @@
+DEVOPS STEP TO STEP LIFECYCLE 
+
+1. Project Planning & Development Kickoff 
+The pipeline begins even before any code is written. It starts from project management and task 
+planning, where business requirements are broken down into small deliverables using tools like JIRA. 
+Tools: 
+• JIRA – Sprint planning, task tracking, and linking code to features 
+• Git (GitHub/GitLab/Bitbucket) – Source code repository with branching strategy 
+Flow: 
+• A new user story is created in JIRA: 
+“As a user, I want to login securely with email and password.” 
+• The story is broken down into: 
+o Create login API 
+o Add validation 
+o Connect to DB 
+o Write unit tests 
+• A developer is assigned the task and begins coding. 
+2. Local Development & Feature Branching 
+The developer pulls the latest code and creates a feature branch using Git. This ensures isolated 
+development without affecting the main codebase. 
+Example: 
+git checkout -b feature/login-api 
+Tools: 
+• VS Code, IntelliJ IDEA – Code editors 
+• Docker Compose / Minikube – Run the full app stack locally 
+• Postman – API testing 
+• Prettier/ESLint – Code formatting 
+During development: 
+• Business logic is implemented. 
+• Environment variables are defined. 
+• Unit tests are written. 
+• .env or config.yml is prepared. 
+3. Git Push & Pull Request Lifecycle 
+After completing development, the code is pushed to the remote repository and a Pull Request (PR) 
+is raised from the feature branch to dev. 
+Example: 
+git push origin feature/login-api 
+A webhook is triggered to Jenkins when the PR is raised, which kicks off the automated CI pipeline. 
+4. Jenkins CI Pipeline Triggered 
+The Jenkins master receives the webhook and triggers the pipeline defined in the Jenkinsfile. Jenkins 
+checks out the code, sets up the environment, and runs all configured stages. 
+Pipeline Configuration: 
+pipeline { 
+agent any 
+stages { 
+stage('Pre-Build') { ... } 
+stage('Build') { ... } 
+stage('Test') { ... } 
+stage('Quality Gate') { ... } 
+stage('Security Scan') { ... } 
+stage('Docker Build & Push') { ... } 
+stage('Deploy to Dev') { ... } 
+} 
+} 
+5. Pre-Build Phase

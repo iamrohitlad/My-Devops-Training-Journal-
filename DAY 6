@@ -1,4 +1,4 @@
-DEVOPS STEP TO STEP LIFECYCLE 
+DEVOPS STEP TO STEP LIFECYCLE : 17 steps to be taken for a good devops practice SLDC lifecycle 
 
 1. Project Planning & Development Kickoff 
 The pipeline begins even before any code is written. It starts from project management and task 
@@ -104,3 +104,98 @@ Jenkins Console:
 SonarQube Quality Gate: FAILED 
 Reason: 3 Critical Bugs, 2 Vulnerabilities 
 
+9. Security Scanning (Trivy) 
+The .jar or Docker image is scanned for CVEs using Trivy. 
+Example Output: 
+trivy fs ./target/myapp.jar 
+• Finds issues in dependencies (e.g., log4j, spring-core) 
+• Can break pipeline if severity = HIGH or CRITICAL 
+
+10. Docker Image Build & Push 
+Jenkins builds a Docker image of the app and pushes it to a container registry. 
+Dockerfile: 
+FROM openjdk:17 
+COPY target/myapp.jar app.jar 
+ENTRYPOINT ["java", "-jar", "app.jar"] 
+Commands: 
+docker build -t registry.com/myapp:dev . 
+docker push registry.com/myapp:dev 
+Output: 
+Successfully pushed myapp:dev to Docker Hub 
+
+11. Notifications 
+The build result is communicated through various channels: 
+Examples: 
+• Slack: "Build #105 Passed   
+" 
+• Email: "Subject: Jenkins Pipeline Failed  
+" 
+• GitHub Status Check: PRs show CI status inline 
+
+12. Deploy to Kubernetes (Dev) 
+Jenkins connects to the Kubernetes DEV cluster and applies manifests. 
+Process: 
+• Set KUBECONFIG in Jenkins agent 
+• Use kubectl apply or Helm chart 
+YAML Sample: 
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+name: myapp 
+spec: 
+replicas: 2 
+template: 
+spec: 
+containers: - image: registry.com/myapp:dev 
+• DEV environment has mock services or sandbox data 
+• Monitoring enabled (Prometheus/Grafana) 
+
+13. Merge to QA & PPD  
+Once verified in DEV: 
+• PR from dev → QA 
+• PR from QA → ppd 
+• Jenkins runs same CI pipeline 
+• Deploys to PPD cluster with real integrations 
+PPD Key Characteristics: 
+• Real secrets fetched from HashiCorp Vault 
+• Feature flags turned ON 
+• Load testing / staging users perform UAT 
+
+14. Merge to Main & PROD Deployment 
+The final merge triggers the PROD release pipeline. 
+Features: 
+• Blue/Green or Canary deployment via Helm 
+• TLS with cert-manager 
+• Live traffic routing via Ingress 
+Helm Command: 
+helm upgrade --install myapp ./charts/myapp --values prod-values.yaml 
+
+15. Kubernetes Resources Breakdown 
+Resource 
+Role 
+Deployment 
+Rollouts, rolling updates 
+ReplicaSet 
+Maintains desired pod count 
+Pod 
+Hosts containers 
+Service 
+Exposes pods inside cluster 
+Ingress 
+Routes traffic to services 
+PVC 
+Persistent storage for DB or state 
+Secret/ConfigMap Injects runtime config and credentials 
+
+16. Observability and Post-Deploy 
+• Prometheus: Monitors metrics (CPU, memory, HTTP errors) 
+• Grafana: Dashboards for health and business KPIs 
+• Loki/ELK: Centralized logs 
+• Sentry: Real-time error tracking 
+
+17. Security Best Practices 
+• Enforce non-root users in Docker 
+• Regular base image scans 
+• Vault-injected secrets (never hardcoded) 
+• RBAC for Jenkins and cluster access 
+• Image Signing with Cosign (optional)

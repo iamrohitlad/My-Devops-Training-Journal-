@@ -3,9 +3,11 @@ LINUX ARCHITECTURE
 Linux architecture is structured in layers that help manage system resources and services 
 efficiently. The primary components include the hardware, kernel, system libraries, system 
 utilities, and user applications. Below is a detailed explanation with a textual diagram. 
+
 1. Hardware Layer 
 The hardware layer is the physical layer comprising all physical devices (CPU, memory, I/O 
 devices, etc.) that are necessary for the system's operation. 
+
 2. Kernel Layer 
 The kernel is the core part of the Linux operating system. It interacts directly with the 
 hardware and manages system resources. The kernel has several important sub
@@ -19,14 +21,21 @@ Example: Network drivers, USB drivers.
 • File System Management: Manages file operations and storage. Example: The ext4 
 file system. 
 • Network Management: Manages networking tasks. Example: TCP/IP stack. 
+
 3. System Libraries 
 System libraries provide a set of functions that can be used by applications to perform tasks 
 without interacting with the kernel directly. The most commonly used library is the GNU C 
 Library (glibc), which provides system calls and basic functions. 
 Example: The printf() function in C to print output. 
+
 4. System Utilities 
 System utilities are programs that perform specific tasks related to system administration 
 and management. These utilities can be categorized into two types: 
 • Basic Utilities: Include commands like ls, cp, mv, and rm. 
 • Advanced Utilities: Include commands like ps, top, df, and iptables. 
+
+5. User Applications: A file manager application might provide a graphical interface for 
+the user to copy files, which ultimately uses the cp command behind the scenes. 
+This layered architecture allows Linux to be flexible, secure, and efficient in managing system 
+resources and executing user applications.
 

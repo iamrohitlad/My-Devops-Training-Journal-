@@ -64,3 +64,21 @@ o /etc/ssh/sshd_config – SSH server config
 • Modified during system setup, service config, networking, and security. 
 cat /etc/os-release 
 cat /etc/hostname
+
+/home — User Home Directories 
+• Each regular user gets a subdirectory here: 
+o /home/aditya 
+o /home/devops_student 
+• Stores user files, configs (dotfiles like .bashrc, .gitconfig), and personal projects. 
+• Safe space for users to work. 
+cd /home 
+ls 
+
+/lib, /lib64 — Shared Libraries 
+• Contains shared libraries needed by programs in /bin and /sbin. 
+• Like DLLs on Windows. 
+• Examples: 
+o /lib/x86_64-linux-gnu/libc.so.6 
+• You can view dependencies using: 
+ldd /bin/ls
+

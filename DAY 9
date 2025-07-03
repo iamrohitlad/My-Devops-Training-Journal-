@@ -1,0 +1,66 @@
+LINUX DIRECTORY STRUCTURE : 
+/ — Root Directory 
+• The base of the filesystem. Every single file and directory starts from here. 
+• This is not the same as /root (which is the home directory for the root user). 
+• Accessing: 
+cd /
+
+/bin — Essential User Binaries 
+• Holds essential command-line tools used in single-user mode or by all users. 
+• Available even when no other mount is available (e.g., during system rescue). 
+• Examples of binaries: 
+o ls – list directory contents 
+o cp – copy files 
+o mv – move/rename 
+o bash – Bourne Again Shell 
+• Why it matters: 
+o /bin ensures that even if /usr is not mounted, basic shell functionality is 
+available. 
+•Path: 
+ls /bin
+
+/sbin — System Binaries 
+• Contains essential system programs used by root or system administrators. 
+• Not typically in a regular user’s PATH. 
+• Examples: 
+o shutdown, reboot – power control 
+o fdisk – partitioning 
+o iptables – firewall 
+• These are not for everyday users. 
+ls /sbin
+
+/boot — Boot Files 
+• Critical for booting the OS. 
+• Contains: 
+o Linux kernel – /boot/vmlinuz-* 
+o Initial RAM disk – /boot/initrd.img-* 
+o GRUB config – /boot/grub/grub.cfg 
+• Messing with this directory can make your system unbootable. 
+• Use case: 
+o When upgrading the kernel 
+o Troubleshooting boot issues 
+ls /boot 
+
+/dev — Device Files 
+• Everything in Linux is a file—even hardware devices. 
+• /dev contains special files that represent hardware devices and virtual devices. 
+• Examples: 
+o /dev/sda – first hard disk 
+o /dev/tty – terminal 
+o /dev/null – discard output 
+• You can use mount /dev/sdb1 /mnt to mount a USB stick. 
+• Devices are dynamically managed by udev. 
+ls /dev 
+ls -l /dev/null
+
+/etc — Configuration Files 
+• This is the brain of your system’s configuration. 
+• Contains system-wide config files and directories. 
+• Examples: 
+o /etc/hostname – name of your machine 
+o /etc/passwd – user account data 
+o /etc/fstab – auto-mount filesystem info 
+o /etc/ssh/sshd_config – SSH server config 
+• Modified during system setup, service config, networking, and security. 
+cat /etc/os-release 
+cat /etc/hostname

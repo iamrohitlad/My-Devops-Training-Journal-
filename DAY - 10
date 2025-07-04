@@ -1,0 +1,53 @@
+USER GROUPS / PERMISSIONS / OWNERSHIPS 
+User and Group Management in Linux 
+Linux is a multi-user operating system, allowing multiple users to access the system 
+simultaneously. User and group management is essential for maintaining system security 
+and controlling access to files and resources. 
+Users 
+Types of Users 
+1. Root User: The root user is the superuser with unrestricted access to the system. The 
+root user's home directory is /root. 
+2. Regular Users: These are non-privileged users created by the root user or system 
+administrators. Each regular user has a unique username and a home directory 
+located in /home/username. 
+Creating Users 
+To create a new user, use the useradd command followed by the username: 
+sudo useradd john 
+After creating a user, set the password using the passwd command: 
+sudo passwd john 
+User Configuration Files 
+• /etc/passwd: Contains user account information. Each line represents a user. 
+plaintext 
+john:x:1001:1001:John Doe,,,:/home/john:/bin/bash 
+ 
+• /etc/shadow: Contains encrypted user passwords and account expiration 
+information. Only readable by the root user. 
+john:$6$abcd1234$abcdefghijklmnopqrstu:/home/john:/bin/bash 
+• /etc/group: Contains group information. 
+developers:x:1002:john
+
+Groups 
+Groups allow administrators to manage permissions for multiple users simultaneously. Each 
+user can belong to one or more groups. 
+Creating Groups 
+To create a new group, use the groupadd command: 
+sudo groupadd developers 
+Adding Users to Groups 
+To add a user to a group, use the usermod command: 
+sudo usermod -aG developers john
+
+User and Group Management Commands 
+• useradd: Adds a new user. 
+sudo useradd username 
+• passwd: Sets or changes a user's password. 
+sudo passwd username 
+• usermod: Modifies a user account. The -aG option adds the user to a group. 
+sudo usermod -aG groupname username 
+• groupadd: Adds a new group. 
+sudo groupadd groupname 
+• groups: Displays the groups a user belongs to. 
+groups username 
+• deluser: Deletes a user. 
+sudo deluser username 
+• delgroup: Deletes a group. 
+sudo delgroup groupname

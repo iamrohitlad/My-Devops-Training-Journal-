@@ -82,3 +82,72 @@ o /lib/x86_64-linux-gnu/libc.so.6
 • You can view dependencies using: 
 ldd /bin/ls
 
+/media — Mount Point for Removable Media 
+• When you insert a USB drive or CD/DVD, it's automatically mounted here by GUI 
+systems. 
+o e.g., /media/aditya/USB_DRIVE 
+• Managed by desktop environments or udisks.
+
+/mnt — Mount Point for Temporary Mounting 
+• Used by system administrators to manually mount filesystems. 
+• For example: 
+mount /dev/sdb1 /mnt 
+• Unlike /media, it’s not automatic. 
+
+/opt — Optional Software 
+• "Optional" third-party software or custom apps are installed here. 
+• Example: /opt/google, /opt/vscode, /opt/tomcat 
+• Keeps it separate from system packages. 
+
+/proc — Process Information (Virtual Filesystem) 
+• Virtual filesystem exposing runtime system information. 
+• Dynamic files that represent system and process information. 
+• Examples: 
+o /proc/cpuinfo – CPU info 
+o /proc/meminfo – memory info 
+o /proc/[PID]/ – details of specific processes 
+• Not real files on disk — virtual and constantly updating. 
+cat /proc/cpuinfo 
+ls /proc/$(pidof bash) 
+
+/root — Root User’s Home Directory 
+• Home directory for the root user (not /home/root!). 
+• Only accessible to root. 
+sudo ls /root 
+
+/run — Temporary Runtime Files 
+• Contains runtime data since boot (e.g., PIDs, sockets). 
+• Replaces older /var/run and is mounted as a tmpfs (in-memory). 
+• Example: /run/nginx.pid, /run/lock 
+/srv — Service Data 
+• "Service" directory that holds data for services provided by the system. 
+• Example: Web server files 
+o /srv/www or /srv/http 
+o /srv/ftp for FTP files 
+/sys — System Information 
+• Like /proc, a virtual filesystem. 
+• Exposes system and kernel information. 
+• Example: /sys/class/net/ for network interfaces 
+
+/tmp — Temporary Files 
+• For temporary files created by programs. 
+• Gets cleared on reboot (in most systems). 
+• Example: temporary downloads, socket files. 
+touch /tmp/test.txt 
+
+/usr — User Utilities and Applications 
+• Contains secondary hierarchy of files and programs not essential for boot. 
+• Subdirectories: 
+o /usr/bin – non-essential user commands 
+o /usr/sbin – non-essential admin commands 
+o /usr/lib – libraries 
+o /usr/local – locally compiled apps 
+/var — Variable Data 
+• Contains files that grow over time. 
+• Logs, spool files, databases, caches. 
+• Common subdirectories: 
+o /var/log/ – system logs (syslog, auth.log, dmesg) 
+o /var/mail/ 
+o /var/lib/ 
+o /var/cache/ 
+cat /var/log/syslog

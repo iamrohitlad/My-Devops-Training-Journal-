@@ -1,0 +1,64 @@
+
+Process Management in Linux 
+
+Process management in Linux involves creating, scheduling, and terminating processes. 
+Understanding how to manage processes is essential for system administration and ensuring 
+the efficient operation of a Linux system. 
+
+Key Concepts in Process Management 
+Process 
+A process is an instance of a running program. Each process has a unique Process ID (PID). 
+Types of Processes 
+1. Foreground Process: Runs in the shell and takes input from the user. The shell waits 
+for the process to complete before giving a prompt. 
+2. Background Process: Runs independently of the shell. The shell gives a prompt 
+immediately after starting the process.
+
+Process States 
+1. Running: The process is either currently executing or ready to execute. 
+2. Waiting: The process is waiting for some event to occur (e.g., I/O operation). 
+3. Stopped: The process has been stopped, usually by receiving a signal. 
+4. Zombie: The process has completed execution but still has an entry in the process 
+table.
+
+Commands for Process Management 
+Viewing Processes 
+1. ps: Displays information about active processes. 
+ps aux   # Detailed list of all running processes 
+
+2. top: Provides a dynamic, real-time view of running processes. 
+Top 
+
+3. htop: An enhanced version of top with a user-friendly interface (requires 
+installation). 
+sudo apt install htop 
+htop 
+
+4. pgrep: Searches for processes by name. 
+pgrep -l bash   # List processes with the name "bash" 
+
+Controlling Processes 
+1. &: Run a process in the background. 
+command & 
+
+2. fg: Bring a background process to the foreground. 
+fg %1   # Bring the first background job to the foreground 
+
+3. bg: Resume a stopped job in the background. 
+bg %1   # Resume the first stopped job in the background 
+
+4. kill: Send a signal to a process, typically to terminate it. 
+kill PID   # Terminate the process with the specified PID 
+kill -9 PID   # Forcefully terminate the process 
+
+5. pkill: Send a signal to processes by name. 
+pkill firefox   # Terminate all processes with the name "firefox" 
+
+6. killall: Send a signal to all processes matching a name. 
+killall firefox   # Terminate all processes with the name "firefox" 
+
+7. nice: Start a process with a specified priority. 
+nice -n 10 command   # Start a process with a nice value of 10 
+
+8. renice: Change the priority of an existing process. 
+renice -n 10 -p PID   # Change the nice value of a process

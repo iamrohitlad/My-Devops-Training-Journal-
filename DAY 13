@@ -1,0 +1,29 @@
+Commands for Process Management 
+Viewing Processes 
+1. ps: Displays information about active processes. 
+ps aux   # Detailed list of all running processes 
+
+2. top: Provides a dynamic, real-time view of running processes. 
+Top 
+
+3. htop: An enhanced version of top with a user-friendly interface (requires 
+installation). 
+sudo apt install htop 
+htop 
+
+4. pgrep: Searches for processes by name. 
+pgrep -l bash   # List processes with the name "bash"
+
+Controlling Processes 
+1. &: Run a process in the background. 
+command & 
+
+2. fg: Bring a background process to the foreground. 
+fg %1   # Bring the first background job to the foreground 
+
+3. bg: Resume a stopped job in the background. 
+bg %1   # Resume the first stopped job in the background 
+
+4. kill: Send a signal to a process, typically to terminate it. 
+kill PID   # Terminate the process with the specified PID 
+kill -9 PID   # Forcefully terminate the process

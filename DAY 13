@@ -27,3 +27,74 @@ bg %1   # Resume the first stopped job in the background
 4. kill: Send a signal to a process, typically to terminate it. 
 kill PID   # Terminate the process with the specified PID 
 kill -9 PID   # Forcefully terminate the process
+
+Detailed Examples 
+Example 1: Viewing Processes 
+1. ps Command: 
+ps aux 
+Output: 
+USER       
+root         
+john       
+PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND 
+1  0.0  0.1 166400  1044 ?        
+123  0.1  0.2 158784  2048 ?        
+2. top Command: 
+top 
+Output: 
+Ss   10:00   0:01 /sbin/init 
+S    10:05   0:00 /usr/bin/bash 
+top - 10:15:33 up 1 day,  1:15,  2 users,  load average: 0.01, 0.05, 0.07 
+Tasks: 125 total,   1 running, 124 sleeping,   0 stopped,   0 zombie 
+%Cpu(s):  1.0 us,  0.5 sy,  0.0 ni, 98.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+KiB Mem :  2048000 total,  102400 free,  102400 used,  1843200 buff/cache 
+KiB Swap:  4096000 total,  4096000 free,        
+0 used.  1945600 avail Mem
+
+Advance Process Management : 
+Process Scheduling 
+Linux uses a time-sharing scheduling algorithm to manage process execution. The scheduler 
+assigns CPU time slices to processes based on their priority. 
+1. Nice Value: The nice value ranges from -20 (highest priority) to 19 (lowest priority). 
+Lower nice values indicate higher priority. 
+nice -n -5 command   # Start a command with high priority 
+2. Real-time Scheduling: Real-time scheduling policies like SCHED_FIFO and SCHED_RR 
+are used for processes requiring real-time execution. 
+chrt -f 10 command   # Start a command with real-time FIFO scheduling 
+
+Monitoring and Debugging Processes 
+1. strace: Traces system calls and signals. 
+strace -p PID   # Trace the system calls of a running process 
+2. lsof: Lists open files and the processes that opened them. 
+lsof -p PID   # List open files for a process 
+3. pstack: Prints a stack trace of a running process. 
+sudo pstack PID   # Print the stack trace of a process 
+4. gdb: The GNU Debugger can be used to debug running processes. 
+gdb -p PID   # Attach gdb to a running process
+
+Example Scenario: Managing a Web Server Process 
+Starting the Web Server 
+1. Run the web server in the background: 
+sudo apache2ctl start & 
+2. Check the status of the web server: 
+ps aux | grep apache2 
+Monitoring Resource Usage 
+1. Use top or htop to monitor resource usage: 
+top -p $(pgrep -d',' apache2) 
+Adjusting Priority 
+1. Increase the priority of the web server: 
+sudo renice -n -10 -p $(pgrep apache2) 
+Debugging Issues 
+1. Use strace to trace system calls: 
+sudo strace -p $(pgrep -o apache2) 
+2. Use lsof to check open files: 
+sudo lsof -p $(pgrep -o apache2)
+
+Summary 
+Process management in Linux involves a range of commands and tools to control and 
+monitor processes. Understanding these tools is crucial for system administration, as they 
+allow for efficient process control, resource management, and troubleshooting. Mastering 
+process management ensures that a Linux system runs smoothly and efficiently, with 
+optimal resource utilization and minimal downtime.
+
+

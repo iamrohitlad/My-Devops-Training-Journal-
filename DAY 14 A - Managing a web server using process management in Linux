@@ -1,0 +1,24 @@
+PROCESS MANAGEMENT IN LINUX ( Taking an example ) 
+Managing a web server process in LINUX 
+Example Scenario: Managing a Web Server Process 
+
+Starting the Web Server 
+1. Run the web server in the background: 
+sudo apache2ctl start &
+
+2. Check the status of the web server: 
+ps aux | grep apache2 
+
+Monitoring Resource Usage 
+1. Use top or htop to monitor resource usage: 
+top -p $(pgrep -d',' apache2) 
+
+Adjusting Priority 
+1. Increase the priority of the web server: 
+sudo renice -n -10 -p $(pgrep apache2) 
+
+Debugging Issues 
+1. Use strace to trace system calls: 
+sudo strace -p $(pgrep -o apache2) 
+2. Use lsof to check open files: 
+sudo lsof -p $(pgrep -o apache2)

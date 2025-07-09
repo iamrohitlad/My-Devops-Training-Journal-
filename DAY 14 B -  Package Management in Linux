@@ -1,0 +1,104 @@
+Package management in Linux refers to the process of installing, updating, configuring, and 
+removing software packages. Different Linux distributions use different package 
+management systems, but the basic principles remain the same. 
+
+The most common package management systems are: 
+1. APT (Advanced Package Tool): Used by Debian-based distributions like Ubuntu. 
+2. YUM (Yellowdog Updater, Modified) / DNF (Dandified YUM): Used by Red Hat
+based distributions like CentOS and Fedora. 
+3. Pacman: Used by Arch Linux. 
+4. Zypper: Used by openSUSE. 
+
+APT (Advanced Package Tool) 
+APT is used in Debian-based distributions like Debian, Ubuntu, and their derivatives.
+
+Key Commands 
+1. Update Package List 
+sudo apt update 
+2. Upgrade Installed Packages 
+sudo apt upgrade 
+3. Install a Package 
+sudo apt install package_name 
+4. Remove a Package 
+sudo apt remove package_name 
+ 
+5. Remove Unused Dependencies 
+sudo apt autoremove 
+6. Search for a Package 
+apt search package_name 
+7. Get Information About a Package 
+apt show package_name 
+
+Example Usage 
+1. Update the Package List 
+sudo apt update 
+This command fetches the latest package information from the repositories. 
+
+2. Upgrade All Installed Packages 
+sudo apt upgrade 
+This command upgrades all the installed packages to their latest versions. 
+
+3. Install the curl Package 
+sudo apt install curl 
+This command installs the curl package. 
+
+4. Remove the curl Package 
+sudo apt remove curl 
+This command removes the curl package. 
+
+5. Search for a Package Named curl 
+apt search curl 
+This command searches for packages related to curl. 
+
+6. Get Information About the curl Package 
+apt show curl 
+This command displays detailed information about the curl package.
+
+Key Commands (DNF) 
+1. Update Package List 
+sudo dnf check-update 
+2. Upgrade Installed Packages 
+sudo dnf upgrade 
+3. Install a Package 
+sudo dnf install package_name 
+4. Remove a Package 
+sudo dnf remove package_name 
+5. Search for a Package 
+dnf search package_name 
+6. Get Information About a Package 
+dnf info package_name 
+
+Example Usage (DNF) 
+1. Update the Package List 
+sudo dnf check-update 
+This command fetches the latest package information from the repositories. 
+2. Upgrade All Installed Packages 
+sudo dnf upgrade 
+This command upgrades all the installed packages to their latest versions. 
+3. Install the wget Package 
+sudo dnf install wget 
+This command installs the wget package. 
+4. Remove the wget Package 
+sudo dnf remove wget 
+This command removes the wget package. 
+5. Search for a Package Named wget 
+dnf search wget 
+This command searches for packages related to wget. 
+6. Get Information About the wget Package 
+dnf info wget 
+This command displays detailed information about the wget package.
+
+Pacman 
+Pacman is the package manager for Arch Linux and its derivatives. 
+Key Commands 
+1. Update Package List and Upgrade All Packages 
+sudo pacman -Syu 
+2. Install a Package 
+sudo pacman -S package_name 
+3. Remove a Package 
+sudo pacman -R package_name 
+4. Search for a Package 
+pacman -Ss package_name 
+5. Get Information About a Package 
+pacman -Si package_name
+

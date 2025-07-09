@@ -1,0 +1,80 @@
+Key Commands 
+1. Update Package List and Upgrade All Packages 
+sudo pacman -Syu 
+2. Install a Package 
+sudo pacman -S package_name 
+3. Remove a Package 
+sudo pacman -R package_name 
+4. Search for a Package 
+pacman -Ss package_name 
+5. Get Information About a Package 
+pacman -Si package_name
+
+Example Usage 
+1. Update Package List and Upgrade All Packages 
+sudo pacman -Syu 
+This command synchronizes the package database and upgrades all installed packages to 
+their latest versions. 
+2. Install the vim Package 
+sudo pacman -S vim 
+This command installs the vim package. 
+3. Remove the vim Package 
+sudo pacman -R vim 
+This command removes the vim package. 
+4. Search for a Package Named vim 
+pacman -Ss vim 
+This command searches for packages related to vim. 
+5. Get Information About the vim Package 
+pacman -Si vim 
+This command displays detailed information about the vim package.
+
+Zypper 
+Zypper is the command line interface of ZYpp package manager for openSUSE and SUSE 
+Linux Enterprise
+
+Key Commands 
+1. Refresh Repository Information 
+sudo zypper refresh 
+
+2. Update Installed Packages 
+sudo zypper update 
+
+3. Install a Package 
+sudo zypper install package_name 
+
+4. Remove a Package 
+sudo zypper remove package_name 
+
+5. Search for a Package 
+zypper search package_name 
+
+6. Get Information About a Package 
+zypper info package_name 
+
+Example Usage 
+1. Refresh Repository Information 
+sudo zypper refresh 
+This command refreshes the repository metadata. 
+
+2. Update All Installed Packages 
+sudo zypper update 
+This command updates all installed packages to their latest versions. 
+
+3. Install the git Package 
+sudo zypper install git 
+This command installs the git package. 
+
+4. Remove the git Package 
+sudo zypper remove git 
+This command removes the git package. 
+
+5. Search for a Package Named git 
+zypper search git 
+This command searches for packages related to git. 
+
+6. Get Information About the git Package 
+zypper info git 
+This command displays detailed information about the git package.
+
+
+

@@ -1,0 +1,46 @@
+Example Scenarios 
+Scenario 1: Monitoring CPU and Memory Usage 
+1. Using top to monitor CPU and memory usage: 
+top 
+o Press q to quit.
+
+2. Using htop for a more interactive view: 
+htop 
+o Press F6 to sort by different metrics. 
+o Use arrow keys to navigate and F9 to kill a process. 
+o Press q to quit.
+
+3. Using vmstat to get a quick overview: 
+vmstat 1 5 
+o This command provides a snapshot of system performance every second for 5 
+iterations.
+
+Scenario 2: Monitoring Disk Usage 
+
+1. Using df to check disk usage: 
+df -h 
+o This command displays disk usage in a human-readable format.
+2. Using du to check directory size: 
+du -sh /var/log 
+o This command displays the total size of the /var/log directory.
+
+Scenario 3: Monitoring Network Activity 
+1. Using netstat to check listening ports: 
+netstat -tuln 
+o This command displays all listening TCP and UDP ports.
+2. Using iftop to monitor bandwidth usage: 
+sudo iftop -i eth0 
+o This command monitors bandwidth usage on the eth0 interface. 
+
+Scenario 4: Comprehensive System Monitoring with nmon 
+1. Starting nmon: 
+nmon 
+o Use keys c for CPU, m for memory, d for disks, n for network, and other keys 
+as displayed to monitor different aspects of the system. 
+o Press q to quit.
+
+Summary 
+Linux provides a variety of tools for system monitoring, each suited for different aspects of 
+system performance and health. Understanding and using these tools effectively helps in 
+maintaining a well-performing and stable system. Regular monitoring can help detect issues 
+early, optimize resource usage, and ensure smooth operation.

@@ -1,0 +1,20 @@
+Linux security encompasses a range of practices and tools designed to protect the system and its data from unauthorized access, misuse, or harm. Security in Linux involves managing user permissions, setting up firewalls, encrypting data, and more. Here is a detailed overview of key security aspects in Linux with examples
+1. User and Group Management
+Proper user and group management is fundamental to Linux security. It ensures that users have appropriate permissions and access rights.
+Adding and Managing Users
+•
+Add a new user:
+sudo adduser username
+•
+Set or change a user password:
+sudo passwd username
+•
+Add a user to a group:
+sudo usermod -aG groupname username
+Example
+# Add user 'john'
+sudo adduser john
+# Set password for 'john'
+sudo passwd john
+# Add 'john' to 'sudo' group
+sudo usermod -aG sudo john

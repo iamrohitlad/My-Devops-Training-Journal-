@@ -9,7 +9,7 @@ Types of Users
 root user's home directory is /root. 
 2. Regular Users: These are non-privileged users created by the root user or system 
 administrators. Each regular user has a unique username and a home directory 
-located in /home/username. 
+located in /home/username.
 Creating Users 
 To create a new user, use the useradd command followed by the username: 
 sudo useradd john 

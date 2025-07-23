@@ -1,0 +1,65 @@
+2. File Permissions and Ownership
+File permissions and ownership control who can read, write, or execute a file.
+Viewing Permissions
+•
+Use ls -l to view file permissions:
+ls -l filename
+Example output:
+-rw-r--r-- 1 user group 0 Aug 6 10:00 filename
+Changing Permissions
+•
+Change permissions using chmod:
+chmod 755 filename # Sets rwxr-xr-x
+chmod u+x filename # Adds execute permission for the owner
+Changing Ownership
+•
+Change ownership using chown:
+chown user:group filename
+Example
+# Create a file
+touch example.txt
+# Change permissions to rwxr-xr--
+chmod 754 example.txt
+# Change ownership to user 'john' and group 'developers'
+sudo chown john:developers example.txt
+
+3. Pluggable Authentication Modules (PAM)
+PAM provides a way to develop programs that are independent of authentication schemes. It allows administrators to configure authentication policies without modifying the application.
+PAM Configuration Files
+•
+Located in /etc/pam.d/
+Example: Restricting SSH Access
+Edit /etc/pam.d/sshd to add a restriction:
+auth required pam_listfile.so item=user sense=deny file=/etc/ssh/deniedusers onerr=succeed
+Create /etc/ssh/deniedusers and add usernames to restrict:
+baduser
+
+4. Firewalls
+A firewall controls incoming and outgoing network traffic based on predetermined security rules.
+Using UFW (Uncomplicated Firewall)
+•
+Enable UFW:
+sudo ufw enable
+•
+Allow SSH connections:
+sudo ufw allow ssh
+•
+Allow a specific port:
+sudo ufw allow 8080
+•
+Deny a specific port:
+sudo ufw deny 23
+•
+Check the status:
+sudo ufw status
+Example
+# Enable UFW
+sudo ufw enable
+# Allow HTTP traffic
+sudo ufw allow 80
+# Allow HTTPS traffic
+sudo ufw allow 443
+# Deny telnet traffic
+sudo ufw deny 23
+# Check UFW status
+sudo ufw status

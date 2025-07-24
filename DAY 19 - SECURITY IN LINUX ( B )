@@ -63,3 +63,41 @@ sudo ufw allow 443
 sudo ufw deny 23
 # Check UFW status
 sudo ufw status
+
+5. SELinux (Security-Enhanced Linux)
+SELinux provides a mechanism for supporting access control security policies.
+SELinux Modes
+•
+Enforcing: SELinux policy is enforced.
+•
+Permissive: SELinux prints warnings instead of enforcing.
+•
+Disabled: SELinux is turned off.
+Checking SELinux Status
+sestatus
+Changing SELinux Mode
+•
+Edit /etc/selinux/config and set SELINUX=enforcing, permissive, or disabled.
+•
+To change the mode without rebooting:
+sudo setenforce 1 # Enforcing mode
+sudo setenforce 0 # Permissive mode
+
+6. SSH (Secure Shell)
+SSH is used for securely connecting to remote servers.
+SSH Key Pair Authentication
+•
+Generate SSH key pair:
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+•
+Copy the public key to the remote server:
+ssh-copy-id user@remote_host
+Example
+# Generate SSH key pair
+ssh-keygen -t rsa -b 4096 -C "john@example.com"
+# Copy public key to remote server
+ssh-copy-id john@192.168.1.100
+# Connect to remote server
+ssh john@192.168.1.100
+
+

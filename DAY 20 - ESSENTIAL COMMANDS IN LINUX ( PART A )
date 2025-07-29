@@ -1,0 +1,98 @@
+1. File and Directory Management
+Command
+Description
+Example
+pwd
+Show current directory
+pwd
+ls
+List files
+ls -l
+cd
+Change directory
+cd /etc
+mkdir
+Create directory
+mkdir new_folder
+rmdir
+Remove empty directory
+rmdir test_dir
+rm
+Remove files/directories
+rm -rf temp/
+cp
+Copy files/directories
+cp file.txt backup.txt
+mv
+Move/rename files
+mv old.txt new.txt
+touch
+Create empty file
+touch test.txt
+file
+Identify file type
+file script.sh
+
+2. File Content Operations
+Command
+Description
+Example
+cat
+View file content
+cat notes.txt
+less
+View long file (paged)
+less syslog
+more
+View file (paged)
+more test.txt
+head
+Show first lines
+head -n 5 file.txt
+tail
+Show last lines
+tail -n 10 file.txt
+tail -f
+Follow file in real-time
+tail -f /var/log/syslog
+wc
+Count words/lines
+wc -l data.txt
+sort
+Sort lines
+sort names.txt
+
+3. Searching
+Command
+Description
+Example
+grep
+Search in files
+grep "main" app.py
+find
+Find files
+find . -name "*.sh"
+locate
+Fast file search
+locate nginx.conf
+which
+Show binary location
+which python3
+whereis
+Find binary & source
+whereis ls
+basename
+Get file name
+basename /home/user/test.txt
+dirname
+Get directory name
+dirname /home/user/test.txt
+xargs
+Pass output as arguments
+`ls
+diff
+Compare files
+diff file1 file2
+cmp
+Byte-wise compare
+cmp file1 file2

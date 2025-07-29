@@ -96,3 +96,58 @@ diff file1 file2
 cmp
 Byte-wise compare
 cmp file1 file2
+
+4. File Permissions & Ownership
+Command
+Description
+Example
+chmod
+Change permissions
+chmod +x script.sh
+chown
+Change ownership
+chown user:group file.txt
+chgrp
+Change group
+chgrp dev file.txt
+umask
+Set default permissions
+umask 022
+stat
+File info
+stat file.txt
+
+5. User Management
+Command
+Description
+Example
+whoami
+Show current user
+whoami
+id
+Show UID, GID
+id
+adduser
+Add user
+sudo adduser devops
+useradd
+Add user (manual)
+sudo useradd -m test
+passwd
+Set/change password
+passwd user
+usermod
+Modify user
+usermod -aG sudo devops
+userdel
+Delete user
+userdel -r test
+groupadd
+Create group
+groupadd admins
+groups
+List user groups
+groups aditya
+who
+List logged in users
+who

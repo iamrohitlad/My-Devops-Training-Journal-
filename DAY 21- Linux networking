@@ -1,0 +1,61 @@
+The OSI (Open Systems Interconnection) model is a conceptual framework used to understand network interactions in seven layers, each representing specific functions within networking. Here’s an explanation of the OSI model with simplified text diagrams for each layer.
+OSI Model Layers
+| Layer 7 - Application | Application Layer
+| Layer 6 - Presentation | Presentation Layer
+| Layer 5 - Session | Session Layer
+| Layer 4 - Transport | Transport Layer
+| Layer 3 - Network | Network Layer
+| Layer 2 - Data Link | Data Link Layer
+| Layer 1 - Physical | Physical Layer
+
+Layer 1 - Physical Layer
+Handles the actual physical connection between devices, defining how bits are transmitted over physical media (e.g., cables, radio waves).
+--- Physical Media --->
+| Bits: 0s and 1s |
+•Example: Ethernet cables, fiber optics.
+
+Layer 2 - Data Link Layer
+Establishes a reliable link between directly connected nodes and handles error correction from the Physical layer.
+| Frame Header | Data | Frame Trailer |
+•Protocols: Ethernet, Wi-Fi (IEEE 802.3, IEEE 802.11)
+•Devices: Switches, Bridges.
+
+Layer 3 - Network Layer
+Responsible for logical addressing and path determination, enabling data to travel from source to destination.
+| IP Header | Frame | IP Trailer |
+•Protocols: IP (Internet Protocol), ICMP.
+•Devices: Routers
+
+Layer 4 - Transport Layer
+Ensures data transfer reliability and controls flow; can establish connections and manage error correction.
+| TCP/UDP Header | IP Packet |
+•Protocols: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
+•Function: Port numbers, flow control, and segmentation.
+
+Layer 5 - Session Layer
+Manages sessions or connections between applications, handling the setup, management, and termination of connections.
+| Session Header | Transport Segment |
+•Example: Controls communication between different web servers and browsers
+
+Layer 6 - Presentation Layer
+Translates data formats, ensuring interoperability between different data encoding systems.
+| Data Encryption/Decryption | Application Data |
+•Functions: Encryption, compression, data conversion.
+
+Layer 7 - Application Layer
+Closest to the end user, this layer facilitates network access for applications.
+| Application Header | Encrypted Data |
+•Examples: HTTP, FTP, SMTP.
+•Function: Enables web browsing, email services, file transfers.
+
+Putting It All Together: Data Flow Example
+Here’s how data would flow through these layers in a real-world example, such as browsing a website:
+1.Application Layer (Layer 7): User requests a webpage. HTTP protocol is used.
+2.Presentation Layer (Layer 6): Data is encrypted or compressed as necessary.
+3.Session Layer (Layer 5): Session is established with the server for the web request.
+4.Transport Layer (Layer 4): Data is segmented, and port numbers are applied (e.g., HTTP uses port 80).
+5Network Layer (Layer 3): The IP address of the server is assigned for routing.
+6.Data Link Layer (Layer 2): Data is framed for local network transmission.
+7.Physical Layer (Layer 1): Data is transmitted over the physical medium (e.g., Wi-Fi or Ethernet) to the server.
+
+Each layer in the OSI model relies on the layer below it to deliver its data and provides services to the layer above it. Understanding these layers helps in diagnosing network issues, as each layer has specific responsibilities and potential failure points.

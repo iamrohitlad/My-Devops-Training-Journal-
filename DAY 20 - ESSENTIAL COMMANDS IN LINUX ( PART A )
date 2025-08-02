@@ -191,3 +191,17 @@ traceroute       Trace hops                     traceroute google.com
 host             DNS lookup                     host google.com
 nslookup         DNS tool                       nslookup google.com 
 
+Package Management  : 
+Command          Description                   Example
+apt update       Update index                  sudo apt update
+apt install      Install package               sudo apt install nginx
+apt remove       Remove package                sudo apt remove nginx
+dpkg             Manage .deb files             dpkg i-package .deb
+snap             Snap Package manager          snap install code
+yum              RHEL-based installer          yum install httpd
+dnf              RHEL modern pkg mgr           dnf update
+rpm              Redhat package manager        rpm-ivh pkg.rpm
+apt-list         List Packages                 apt-list installed           
+apt-cache        Package information           sudo apt-cache 
+
+

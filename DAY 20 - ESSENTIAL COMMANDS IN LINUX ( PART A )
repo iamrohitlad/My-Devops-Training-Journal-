@@ -151,3 +151,17 @@ groups aditya
 who
 List logged in users
 who
+
+System Information : 
+Command          Description                   Example 
+unname           System Info                   unname- a
+hostname         Show name / host name         dev-server set-hostname 
+uptime           Show uptime                    uptime -h 
+top              Task Manager                   top 
+htop             Enhance top                    htop 
+free             Memory Information             free -h  
+vmstat           System Status                  vmstat
+dmesg            Boot log s                     dmesg
+Iscpu            CPU details                    Iscpu
+Isblk            List Block Devices             Isbulk 
+

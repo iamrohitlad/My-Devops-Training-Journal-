@@ -165,3 +165,29 @@ dmesg            Boot log s                     dmesg
 Iscpu            CPU details                    Iscpu
 Isblk            List Block Devices             Isbulk 
 
+Disk and file system : 
+Command          Description                   Example 
+df               disk usage                    df -h
+du               directory file / size         du -sh*
+mount            mount filesystem              mount/dev/sb1/mnt
+unmount          unmount filesystem            unmount/mnt
+blkid            show disk UIIDS               blkid
+fdisk            Partition Manager             fdisk/dev/sda
+mkfs             format partition              mkfs.ext4
+tune2fs          tune fs parameter             tune2fs -1 
+fsck             checking disk usage           fsck/deb/sb1
+sync             flusk disk cache              sync 
+
+Network Management  : 
+Command          Description                   Example 
+ip a             Show interfaces / ip          ip a , ip b
+ifconfig         Legacy interface tool         ifconfig
+ping             check internet connectivity   ping google 
+curl             HTTP requests                 curl example.com
+wget             Download files                wget http://file.com//file.zip 
+netstat          show connections              netstat -tlun
+ss               show sockets                   ss -tuln
+traceroute       Trace hops                     traceroute google.com 
+host             DNS lookup                     host google.com
+nslookup         DNS tool                       nslookup google.com 
+

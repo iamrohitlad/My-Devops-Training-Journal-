@@ -59,3 +59,28 @@ Here’s how data would flow through these layers in a real-world example, such 
 7.Physical Layer (Layer 1): Data is transmitted over the physical medium (e.g., Wi-Fi or Ethernet) to the server.
 
 Each layer in the OSI model relies on the layer below it to deliver its data and provides services to the layer above it. Understanding these layers helps in diagnosing network issues, as each layer has specific responsibilities and potential failure points.
+
+IP Addressing: IPv4 vs. IPv6 in Detail
+IPv4
+IPv4 addresses are written in dotted decimal notation, with four sections separated by dots, each representing an octet (8 bits) of the 32-bit address. Each octet can range from 0 to 255.
+Example: 192.168.1.10
+Binary Form: 11000000.10101000.00000001.00001010
+IPv4 Address Classes
+IPv4 addresses are divided into classes based on the first octet:
+
+Class A: Starts from 1.0.0.0 to 126.255.255.255 with a default subnet mask of /8 (255.0.0.0).
+
+Class B: Starts from 128.0.0.0 to 191.255.255.255 with a default subnet mask of /16 (255.255.0.0).
+
+Class C: Starts from 192.0.0.0 to 223.255.255.255 with a default subnet mask of /24 (255.255.255.0).
+
+Example of Using IPv4 in Subnetting:
+For an IP like 192.168.1.0/24, we know:
+
+Network Address: 192.168.1.0
+
+Broadcast Address: 192.168.1.255
+
+Range for Host IPs: 192.168.1.1 to 192.168.1.254
+
+

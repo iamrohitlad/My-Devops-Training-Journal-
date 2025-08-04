@@ -1,0 +1,78 @@
+1. Declaring Variables: In shell scripting, you can declare variables without specifying their data types. Variables are case-sensitive and can consist of letters, numbers, and underscores, but they must start with a letter or underscore. Here's how you declare a variable:
+variable_name=value
+2. Variable Types: Shell scripting doesn't have strict data types like other programming languages. Variables are treated as strings by default, but you can manipulate them to behave as different types.
+3. Variable Assignment and Manipulation: You can assign values to variables using the assignment operator =. Here are examples of various types of variable assignments and manipulations:
+# String Variable
+name="John"
+echo "Hello, $name!" # Output: Hello, John!
+# Integer Variable
+age=25
+echo "Age: $age years" # Output: Age: 25 years
+# Arithmetic Operations
+x=10
+y=5
+sum=$((x + y))
+echo "Sum: $sum" # Output: Sum: 15
+# Concatenation
+greeting="Hello"
+subject="World"
+message="$greeting, $subject
+# String Length
+string="Shell Scripting"
+length=${#string}
+echo "Length: $length" # Output: Length: 15
+# Substring Extraction
+substring=${string:0:4} # Extracts first 4 characters
+echo "Substring: $substring" # Output: Substring: Shell
+4. Command Substitution: You can capture the output of a command and assign it to a variable using command substitution. There are two ways to do this:
+# Using Backticks
+current_date=`date`
+echo "Current date: $current_date"
+# Using $(...)
+current_time=$(date +%H:%M:%S)
+echo "Current time: $current_time"
+5. Readonly Variables: You can declare variables as readonly to prevent their values from being changed after initial assignment:
+readonly pi=3.14159
+pi=3.14 # This will result in an error
+6. Unsetting Variables: You can unset (delete) a variable using the unset command:
+unset variable_name
+7. Quoting Variables: Quoting variables properly is essential to preserve spaces and special characters:
+variable="Hello World"
+echo "Using double quotes: $variable"
+echo 'Using single quotes: $variable'
+echo Using no quotes: $variable
+echo "Using double quotes: '$variable'"
+8. Escaping Characters: If you need to include special characters within a variable, you can escape them using backslashes:
+special_char="\$"
+echo "Variable: $special_char" # Output: Variable: $
+Sure, let's delve into shell scripting with a focus on reading user input and input validation. Shell scripts are a series of commands that are executed in a sequence. User input allows scripts to interact with users and make decisions based on that input. Input validation ensures that the provided input meets certain criteria.
+Reading User Input: To read user input in a shell script, you can use the read command. It reads input from the user until the Enter key is pressed and assigns the input to a variable. Here's an example:
+#!/bin/bash
+# Prompt the user for their name
+echo "Please enter your name:"
+read name
+# Display a greeting using the user's input
+echo "Hello, $name! Nice to meet you."
+In this example, the user's input is stored in the name variable, and the script uses that input to display a greeting.
+Input with Prompting: You can also use the read command with a prompt message directly, eliminating the need for separate echo commands:
+#!/bin/bash
+# Read input with a prompt message
+read -p "Enter your favorite color: " color
+echo "Your favorite color is $color."
+Using read Options: The read command has various options to customize its behavior. For example:
+•
+-p specifies a prompt message.
+•
+-r disables interpreting backslashes, useful for reading file paths.
+•
+-t sets a timeout for input.
+•
+-s hides input (useful for passwords).
+#!/bin/bash
+# Read password without echoing characters
+read -s -p "Enter your password: " password
+echo "Password entered."
+# Read input with timeout
+read -t 5 -p "Enter something in 5 seconds: " timed_input
+echo "You entered: $timed_input"
+

@@ -76,3 +76,64 @@ echo "Password entered."
 read -t 5 -p "Enter something in 5 seconds: " timed_input
 echo "You entered: $timed_input"
 
+Conditional statements allow your script to make decisions and execute different code paths based on certain conditions.
+1. if, else, elif:
+The if statement is used to execute code block(s) conditionally. You can use else to define what should be done if the condition is not met, and elif to add more conditions.
+#!/bin/bash
+num=10
+if [ $num -gt 10 ]; then
+echo "Number is greater than 10"
+elif [ $num -eq 10 ]; then
+echo "Number is equal to 10"
+else
+echo "Number is less than 10"
+fi
+
+Case Statements (Switch):
+The case statement allows you to compare a variable against multiple values and execute code based on the match.
+#!/bin/bash
+fruit="apple"
+case $fruit in
+"apple")
+echo "It's an apple"
+;;
+"banana")
+echo "It's a banana"
+;;
+"orange")
+echo "It's an orange"
+;;
+*)
+echo "Unknown fruit"
+;;
+esac
+
+Looping:
+Looping structures help you repeat a set of commands multiple times.
+1. for Loop:
+The for loop iterates over a list of items and performs the specified commands for each item.
+#!/bin/bash
+for color in red green blue; do
+echo "Color: $color"
+done
+2. while Loop:
+The while loop repeatedly executes a block of code as long as a condition is true.
+#!/bin/bash
+count=1
+while [ $count -le 5 ]; do
+echo "Count: $count"
+((count++))
+done
+3. until Loop:
+The until loop is similar to the while loop but continues executing until a condition becomes true.
+#!/bin/bash
+num=0
+until [ $num -ge 5 ]; do
+echo "Number: $num"
+((num++))
+done
+Sure, I'd be happy to explain shell script functions in detail, along with examples for each of the topics you mentioned.
+
+
+
+

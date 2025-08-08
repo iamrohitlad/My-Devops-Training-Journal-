@@ -1,0 +1,43 @@
+Git Comprehensive Guide
+What is Git?
+Git is a Distributed Version Control System where every developer has:
+•
+A full copy of the repository (.git directory)
+•
+Complete history including all branches, commits, and tags
+•
+Ability to work offline, merge changes, and push to a central server
+Unlike older systems (CVS, SVN), Git doesn’t rely on a central repository. It gives full power and flexibility to every contributor.
+Centralized vs Distributed
+Feature
+Centralized VCS
+Git (DVCS)
+Server dependency
+Mandatory
+Not required
+Offline work
+No
+Yes
+Performance
+Slower
+Faster
+History stored
+Server-only
+Local
+Collaboration
+Limited branching
+Unlimited branching, rebasing
+
+Why Git Changed the Game
+•
+Snapshots instead of diffs
+•
+Immutable commit history
+•
+Fast operations via local metadata
+•
+Advanced branching + merging strategies
+•
+SHA-1 content hashing (ensures data integrity)
+•
+Efficient file storage using content deduplication
